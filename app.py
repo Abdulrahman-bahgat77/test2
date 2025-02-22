@@ -77,6 +77,10 @@ def plan_trip_with_airport(days, budget, daily_activities=4, food_budget_ratio=0
     return recommended_places, total_cost, "Cairo International Airport (CAI)", "October - April", "October"
 
 # API endpoint
+@app.route('/')
+def home():
+    return  "plan_trip"
+
 @app.route('/plan_trip', methods=['POST'])
 def plan_trip():
     request_data = request.get_json()
