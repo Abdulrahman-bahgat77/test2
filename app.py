@@ -1,11 +1,11 @@
 from flask import Flask, request, jsonify
 import pandas as pd
 import random
-
+from flask_cors import CORS
 app = Flask(__name__)
-
+CORS(app)
 # Load and preprocess data
-data = pd.read_excel("/Users/Abdo/Desktop/task/Model1/egypt_landmarks.xlsx")
+data = pd.read_excel("/Edrawsoft/Task/model1/egypt_landmarks.xlsx")
 data.columns = data.columns.str.strip()
 
 # Ensure required and optional columns exist
@@ -123,4 +123,4 @@ def plan_trip():
 
 # Run the Flask app
 if __name__ == '__main__':
-    app.run(debug=True)
+     app.run(host="0.0.0.0", port=5000)
